@@ -1,8 +1,6 @@
-import './globals.css';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
-import ClientOnly from './components/ClientOnly';
-import Navbar from './components/Navbar';
+import ClientOnly from '../components/ClientOnly';
 
 const inter = Roboto({
   subsets: ['latin'],

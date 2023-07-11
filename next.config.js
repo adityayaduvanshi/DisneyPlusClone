@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    domains: [
+      'upload.wikimedia.org',
+      'uhdtv.io',
+      'sjarqkmkcgyjciuhixyt.supabase.co',
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
