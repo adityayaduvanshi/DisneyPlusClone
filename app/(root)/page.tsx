@@ -7,7 +7,6 @@ import Billboard from '@/components/Billboard';
 import Viewers from '@/components/Viewers';
 import MovieList from '@/components/MovieList';
 import getFavourite from '../actions/getFavourite';
-import Animation from '@/components/Animation';
 
 const HomePage = async () => {
   const currentUser = await getCurrentUser();
@@ -17,22 +16,12 @@ const HomePage = async () => {
   const movies = await prismadb.movie.findMany();
   const favourite = await getFavourite();
   return (
-    <Animation>
-      <div className="pt-16 pb-40 bg-[url('/images/home-background.png')] bg-no-repeat bg-fixed bg-cover">
-        <Billboard />
-        <Viewers />
-        <MovieList
-          data={movies}
-          title="Trending Now"
-          currentUser={currentUser}
-        />
-        <MovieList
-          data={favourite}
-          title="Your List"
-          currentUser={currentUser}
-        />
-      </div>
-    </Animation>
+    <div className="pt-16 pb-40 bg-[url('/images/home-background.png')] bg-no-repeat bg-fixed bg-cover">
+      <Billboard />
+      <Viewers />
+      <MovieList data={movies} title="Trending Now" currentUser={currentUser} />
+      <MovieList data={favourite} title="Your List" currentUser={currentUser} />
+    </div>
   );
 };
 export default HomePage;
